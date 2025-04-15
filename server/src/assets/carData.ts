@@ -1,0 +1,36 @@
+const car =const cars = [
+    {
+      id: 1,
+      userId: 1,
+      image_url: "https://example.com/car1.jpg",
+      make: "Toyota",
+      model: "Corolla",
+      year: 2020,
+      price: 20000,
+      description: "A reliable compact car.",
+      contactNumber: "123-456-7890",
+    },
+    {
+      id: 2,
+      userId: 2,
+      image_url: "https://example.com/car2.jpg",
+      make: "Ford",
+      model: "Mustang",
+      year: 2019,
+      price: 35000,
+      description: "A powerful muscle car.",
+      contactNumber: "987-654-3210",
+    },
+    {
+      id: 3,
+      userId: 3,
+      image_url: "https://example.com/car3.jpg",
+      make: "Tesla",
+      model: "Model 3",
+      year: 2022,
+      price: 45000,
+      description: "An electric sedan with advanced features.",
+      contactNumber: "555-123-4567",
+    },
+  ];
+  

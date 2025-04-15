@@ -1,0 +1,5 @@
+back & front done : navbar(default) & auth & user & car
+deploment done : datbase(mysql : planetscale)
+
+
+

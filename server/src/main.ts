@@ -9,7 +9,7 @@ async function bootstrap() {
   const configService = app.get(ConfigService);
 
   app.enableCors({
-    origin: process.env.CLIENT_URL,
+    origin: "https://car-ads-client.vercel.app/",
     credentials: true,
   });
   app.use(cookieParser());

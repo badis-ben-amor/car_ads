@@ -44,6 +44,7 @@ const authSlice = createSlice({
   initialState: {
     isLoading: false,
     error: null,
+    accessToken: "",
   },
   reducers: {},
   extraReducers: (builder) => {
@@ -61,8 +62,9 @@ const authSlice = createSlice({
       .addCase(loginThunk.pending, (state) => {
         state.isLoading = true;
       })
-      .addCase(loginThunk.fulfilled, (state) => {
+      .addCase(loginThunk.fulfilled, (state, action) => {
         state.isLoading = false;
+        state.accessToken = action.payload.accessToken;
       })
       .addCase(loginThunk.rejected, (state, action: any) => {
         state.isLoading = false;

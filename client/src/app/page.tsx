@@ -24,6 +24,7 @@ import { CarType } from "@/types/carType";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { useRouter } from "next/navigation";
+import { getUserThunk } from "@/redux/slices/userSlice";
 
 const Home = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -31,6 +32,9 @@ const Home = () => {
 
   const { cars: carsData, accessToken } = useSelector(
     (state: RootState) => state.car
+  );
+  const { accessToken: authAccessToken } = useSelector(
+    (state: RootState) => state.user
   );
   const { user }: any = useSelector((state: RootState) => state.user);
 
@@ -50,6 +54,7 @@ const Home = () => {
 
   useEffect(() => {
     dispatch(getAllCarsThunk());
+    dispatch(getUserThunk(authAccessToken));
   }, []);
 
   useEffect(() => {

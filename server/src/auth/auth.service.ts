@@ -69,7 +69,7 @@ export class AuthService {
       res.cookie("refreshToken", refreshToken, {
         httpOnly: true,
         secure: this.configService.get("NODE_ENV") === "production",
-        sameSite: "strict",
+        sameSite: this.configService.get("SAME_SITE"),
         maxAge: 33 * 24 * 60 * 60 * 1000,
       });
 
@@ -112,7 +112,7 @@ export class AuthService {
       res.cookie("refreshToken", refreshToken, {
         httpOnly: true,
         secure: this.configService.get("NODE_ENV") === "production",
-        sameSite: "none",
+        sameSite: this.configService.get("SAME_SITE"),
       });
 
       return res.status(HttpStatus.OK).json({ accessToken });

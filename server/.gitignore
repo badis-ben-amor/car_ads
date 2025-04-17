@@ -1,4 +1,5 @@
 # compiled output
+/z_now.txt
 /dist
 /node_modules
 /build

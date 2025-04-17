@@ -7,7 +7,7 @@ export const getUserThunk = createAsyncThunk(
   async (accessToken: string, thunkAPI) => {
     try {
       const res = await getUser(accessToken);
-      return res.data;
+      return { data: res.data, accessToken };
     } catch (error: any) {
       if (error.response?.status === 401) {
         try {

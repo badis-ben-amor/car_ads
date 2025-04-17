@@ -6,16 +6,18 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import React, { useState } from "react";
 import { AppDispatch } from "@/redux/store";
+import { useRouter } from "next/navigation";
 
 const Login = () => {
   const dispatch = useDispatch<AppDispatch>();
+  const router = useRouter();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    dispatch(loginThunk({ email, password }));
+    dispatch(loginThunk({ email, password })).then(() => router.push("/"));
   };
   return (
     <div className="max-w-md mx-auto mt-4">

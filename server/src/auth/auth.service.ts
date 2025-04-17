@@ -115,6 +115,8 @@ export class AuthService {
         sameSite: "strict",
       });
 
+      console.log("object");
+
       return res.status(HttpStatus.OK).json({ accessToken });
     } catch (error) {
       throw new InternalServerErrorException("Login failed");

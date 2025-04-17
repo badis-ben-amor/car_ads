@@ -112,10 +112,8 @@ export class AuthService {
       res.cookie("refreshToken", refreshToken, {
         httpOnly: true,
         secure: this.configService.get("NODE_ENV") === "production",
-        sameSite: "strict",
+        sameSite: "none",
       });
-
-      console.log("object");
 
       return res.status(HttpStatus.OK).json({ accessToken });
     } catch (error) {

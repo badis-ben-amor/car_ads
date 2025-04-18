@@ -6,21 +6,34 @@ import { AppDispatch } from "../../../redux/store";
 import { Button } from "../../../components/ui/button";
 import { Input } from "../../../components/ui/input";
 import { Label } from "../../../components/ui/label";
+import { useRouter } from "next/navigation";
 
 const Register = () => {
   const dispatch = useDispatch<AppDispatch>();
+  const router = useRouter();
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState(null);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    dispatch(registerThunk({ name, email, password }));
+    dispatch(registerThunk({ name, email, password }))
+      .unwrap()
+      .then(() => router.push("/"))
+      .catch((err) => {
+        setError(err);
+      });
   };
   return (
     <div className="max-w-md mx-auto mt-4">
       <form onSubmit={handleSubmit}>
+        {error && (
+          <div className="text-center">
+            <p className="text-red-600">{error}</p>
+          </div>
+        )}
         <div className="mb-4">
           <Label htmlFor="name">Name</Label>
           <Input

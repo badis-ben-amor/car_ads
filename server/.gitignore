@@ -1,5 +1,4 @@
 # compiled output
-/z_now.txt
 /dist
 /node_modules
 /build
@@ -55,3 +54,7 @@ pids
 
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+
+# personal files
+/z_now.txt
+/../now.txt

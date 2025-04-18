@@ -34,7 +34,7 @@ const Home = () => {
     (state: RootState) => state.car
   );
   const { accessToken: authAccessToken } = useSelector(
-    (state: RootState) => state.user
+    (state: RootState) => state.auth
   );
   const { user }: any = useSelector((state: RootState) => state.user);
 
@@ -54,7 +54,7 @@ const Home = () => {
 
   useEffect(() => {
     dispatch(getAllCarsThunk());
-    dispatch(getUserThunk(authAccessToken));
+    authAccessToken && dispatch(getUserThunk(authAccessToken));
   }, []);
 
   useEffect(() => {
